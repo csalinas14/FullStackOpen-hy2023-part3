@@ -19,7 +19,7 @@ morgan.token('content', (request, response) => {
 app.use(express.json())
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :content'))
 app.use(cors())
-
+app.use(express.static('build'))
 
 
 const date = new Date()
