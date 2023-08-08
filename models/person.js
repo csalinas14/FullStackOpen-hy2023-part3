@@ -20,7 +20,15 @@ mongoose.connect(url)
       minLength: 3,
       required: true
     },
-    number: String
+    number: {
+      type: String,
+      minLength: 8,
+      validate: {
+        validator: (v) => {
+          return /^\d{2,3}-\d+$/.test(v)
+        }
+      }
+    }
 })
 
 personSchema.set('toJSON', {
